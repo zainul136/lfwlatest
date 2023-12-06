@@ -1,0 +1,1069 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    font-size: 62.5%;
+}
+header {
+    padding: 0 14rem;
+    height: 13rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header img{
+    width: 10.4rem;
+}
+header nav {
+    display: flex;
+    align-items: center;
+}
+header nav a{
+    font-size: 1.6rem ;
+    color: #52525B;
+    margin: 0 3rem;
+    text-decoration: none;
+}
+.btn{
+    width: 14.2rem;
+    border-radius: 4.1rem;
+    background: var(--99-ddcc, #6FD0B8);
+    box-shadow: 0px 4px 20px 0px rgba(153, 221, 204, 0.40);
+    height: 5rem;
+    font-size: 1.6rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    border: 0;
+}
+.hero {
+    display: flex;
+    justify-content: center;
+}
+.ham{
+    display: none;
+}
+.hero .container{
+    border-radius: 6rem;
+    width: 164rem;
+    background: url("./img/main.png");
+    display: flex;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 22rem;
+
+}
+.hero .container .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 12rem;
+}
+.hero .container h2{
+    font-size: 12rem;
+    font-weight: 200;
+    color: #090914;
+    line-height: 12rem;
+    text-align: center;
+    animation: slideDown 1s ease-in-out;
+}
+.hero .container p{
+    font-size: 2rem;
+    color: #52525B;
+    margin-top: 4rem;
+    width: 81rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    animation: slideRight 1s ease-in-out;
+}
+.hero .container .btn{
+    width: 20.6rem;
+    height: 6.4rem;
+    animation: slideLeft 1s ease-in-out;
+}
+.hero .container img:nth-child(1){
+    position: absolute;
+    top: -1.5rem;
+    left: 6.11rem;
+    animation: StarAnim 3s infinite, slideDown 1s ease-in-out;
+    width: 6.5rem;
+}
+.hero .container img:nth-child(2){
+    position: absolute;
+    animation: slideDown 1s ease-in-out, lineAnim 3s infinite ease-in-out;
+    right: 0;
+    width: 23.7rem;
+    top: 24rem;
+}
+.btn:hover{
+    border: 2px solid #6FD0B8;
+    color: #6FD0B8;
+    background: transparent;
+}
+@keyframes StarAnim {
+    0%{
+        transform: scale(.7);
+    }50%{
+         transform: scale(1);
+     }100%{
+          transform: scale(.7);
+      }
+
+}
+@keyframes slideDown {
+    0%{
+        opacity: 0;
+        transform: translateY(-400px);
+    }100%{
+         opacity: 1;
+         transform: translateY(0px);
+
+     }
+
+}
+@keyframes slideLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-400px);
+    }100%{
+         opacity: 1;
+         transform: translateX(0px);
+
+     }
+
+}
+.BottomHeadingLine{
+    animation: lineAnim 3s infinite ease-in-out;
+}
+@keyframes lineAnim {
+    0%{
+        clip-path: inset(0 100% 0 0);
+    }
+    50%{
+        clip-path: inset(0 0 0 0);
+    }
+    100%{
+        clip-path: inset(0 100% 0 0);
+    }
+}
+@keyframes slideRight {
+    0%{
+        opacity: 0;
+        transform: translateX(400px);
+    }100%{
+         opacity: 1;
+         transform: translateX(0px);
+
+     }
+
+}
+.AboutSec .row{
+    display: flex;
+    align-items: center;
+    padding: 1.65rem;
+    padding-left: 0;
+    margin: auto;
+    position: relative;
+    justify-content: space-between;
+
+}
+
+
+.AboutSec {
+    position: relative;
+    width: 137rem;
+    margin: auto;
+}
+.AboutSec .border{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 137rem;
+
+}
+.AboutSec .left h2{
+    font-size: 4.8rem;
+    color: #090914;
+    font-weight: 400;
+    position: relative;
+    width: max-content;
+    line-height: 3.5rem;
+}
+.AboutSec .left h2 svg{
+    position: absolute;
+    top: calc(100% + .63rem);
+}
+.AboutSec .left p{
+    font-size: 2rem;
+    color: #52525B;
+    margin-top: 4.1rem;
+    width: 51rem;
+}
+.AboutSec .left .btn{
+    margin-top: 5rem;
+    width: 20.6rem;
+    height: 6.4rem;
+
+}
+.AboutSec .right {
+    position: relative;
+}
+.AboutSec .right img{
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.50));
+    width: 74.9rem;
+    height: 46rem;
+    border-radius: 50rem;
+}
+.AboutSec .right svg{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+}
+.AboutSec .row.row2{
+    flex-direction: row-reverse;
+    padding-right: 0;
+    padding-left: 1.65rem;
+}
+.AboutSec.sec2 .right svg{
+    left: 0;
+
+}
+
+.journey {
+    width: 164rem;
+    margin: auto;
+    margin-top: 14rem;
+    border-radius:4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background:url("./img/journey.png");
+    mix-blend-mode: luminosity;
+    padding: 7.06rem 0;
+}
+.journey h2{
+    font-size: 8rem;
+    font-weight: 200;
+    color: #090914;
+    text-align: center;
+    position: relative;
+    width: max-content;
+}
+.journey h2 svg{
+    position: absolute;
+    bottom: 1.2rem;
+}
+.journey p{
+    width: 81rem;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: #52525B;
+    margin-bottom: 5rem;
+}
+.journey .btn{
+    width: 20.6rem;
+}
+
+.cards {
+    margin: auto;
+    margin-top: 12rem;
+    display: flex;
+    width: 139.6rem;
+    justify-content: space-between;
+}
+.cards .card{
+    padding: 4.5rem 5rem 5.2rem 5.2rem;
+    color: #52525B;
+    width: 67.2rem;
+    height: 35rem;
+    border-radius: 6rem;
+    margin-bottom: 5.2rem;
+}
+.cards .card.white{
+    color: white;
+}
+.cards .card h2{
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.cards .card p{
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+.cards .card .bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 5.7rem;
+}
+.cards .card .bottom a{
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+}
+.cards .card .bottom a svg{
+    width: 3.1rem;
+}
+.cards .card .bottom a svg{
+    margin-left: 1rem;
+}
+.cards .right{
+    margin-top: 9rem;
+}
+.cards .card {
+    animation: cardsAnim 3s infinite;
+
+}
+.cards .card:hover{
+    animation: none;
+    transform: scale(1);
+
+}
+@keyframes cardsAnim {
+    0%{
+        transform: scale(.98);
+    }50%{
+         transform: scale(1);
+     }
+    100%{
+        transform: scale(.98);
+
+    }
+
+}
+.cards .card a{
+    text-decoration: none;
+}
+.cards .left .card:nth-child(1) {
+    background-color: #52525B;
+}
+.cards .left .card:nth-child(1) a{
+    color: #99DDCC;
+}
+.cards .right .card:nth-child(1) {
+    background-color: #99DDCC;
+}
+.cards .right .card:nth-child(1) a{
+    color: white;
+}
+.cards .left .card:nth-child(2) {
+    background-color: #F4F4F4;
+}
+.cards .left .card:nth-child(2) a{
+    color: #52525B;
+}
+.cards .right .card:nth-child(2) {
+    background-color: white;
+    filter: drop-shadow(1px 1px 6px #00000015);
+
+}
+.cards .right .card:nth-child(2) a{
+    color: #99DDCC;
+}
+.learnmore{
+    background: url("./img/learnmore.png");
+    background-size: cover;
+}
+
+.contact{
+    padding: 8rem 0;
+    border-top: 1px solid rgb(82, 82, 91, .1);
+    border-bottom: 1px solid rgb(82, 82, 91, .1);
+    margin-top: 5rem;
+}
+.contact .row{
+    margin: auto;
+    align-items: center;
+    display: flex;
+    width: 164rem;
+    justify-content: space-between;
+
+}
+.contact h2{
+    font-size: 4.8rem;
+    font-weight: 200;
+    color: #090914;
+}
+.contact p{
+    font-size: 1.6rem;
+    color: #52525B;
+    margin-top: 1rem;
+    width: 66rem;
+}
+.contact input{
+    width: 41rem;
+    height: 5rem;
+    padding-left: 2rem;
+    font-size: 1.6rem;
+    margin-right: 2rem;
+    border-radius: 2.7rem;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+}
+.contact .right{
+    display: flex;
+    justify-content: space-between;
+}
+
+footer{
+    width: 100%;
+}
+footer .top{
+    margin: auto;
+    margin-top: 6.9rem;
+    width: 164rem;
+    display: flex;
+    margin-bottom: 9.2rem;
+}
+footer .top .about{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+footer .top .about img{
+    width: 10.4rem;
+}
+footer .top .about p{
+    font-size: 1.6rem;
+    width: 46.7rem;
+    margin-top: 1.8rem;
+}
+footer .top .links {
+    display: flex;
+    flex-direction: column;
+
+}
+footer .top .links h2{
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    color: #52525B;
+    font-weight: 400;
+}
+footer .top .links a{
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #52525B;
+    margin-bottom: 2.5rem;
+}
+footer .top .links a img{
+    margin-right: 1.5rem;
+}
+footer .top .links:nth-child(2) {
+    margin-left: 11.2rem;
+}
+footer .top .links:nth-child(3) {
+    margin-left: 22rem;
+}
+footer .top .links:nth-child(4) {
+    margin-left: 17.4rem;
+}
+footer .bottom{
+    border-top: 1px solid rgb(82, 82, 91, .3);;
+    font-size: 1.6rem;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    color: #52525B;
+}
+.contactUsPage .container img:nth-child(2){
+    right: 4.7rem ;
+    width: 18.7rem ;
+    top: 11rem ;
+
+}
+.ContactPageForm {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+    margin-bottom: 12rem;
+}
+.ContactPageForm .left{
+    width: 40rem;
+    height: 91rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.79) 0%, #FFF 77.6%, #FFF 100%), url("./img/contact.png"), lightgray 50% / cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4rem;
+    margin-right: 3rem;
+    padding: 2rem;
+}
+.ContactPageForm .left h2{
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+}
+.ContactPageForm .left p{
+
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+.ContactPageForm .left p img{
+    margin-right: 1rem;
+}
+.ContactPageForm h2{
+    font-size: 8rem;
+    font-weight: 200;
+    color: #090914;
+}
+.ContactPageForm p{
+    font-size: 2rem;
+    color: #52525B;
+}
+.ContactPageForm form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ContactPageForm form .input{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+}
+.ContactPageForm form .input label{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #52525B;
+
+}
+.ContactPageForm form .input textarea,
+.ContactPageForm form .input input{
+    width: 80rem;
+    height: 5rem;
+    border: 1px solid rgb(82, 82, 91, .3);
+    border-radius: 5rem;
+    font-size: 1.6rem;
+    padding-left: 1.5rem;
+}
+.ContactPageForm form .input textarea{
+    height: 30rem;
+    padding-top: 1.5rem;
+    border-radius: 2.5rem;
+}
+.ContactPageForm form .btn{
+    width: 20.6rem;
+}
+.Aboutpage {
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+    background: #F8F8FA;
+    width: 100%;
+
+}
+.About .container img:nth-child(2){
+    width: 15.7rem;
+    top: 11rem;
+    right: 12.7rem;
+}
+.About .container img:nth-child(1) {
+
+    left: 15.11rem;
+}
+.Aboutpage .row{
+    display: flex;
+    justify-content: center;
+}
+.Aboutpage .left h2{
+    font-size: 4.2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Aboutpage .left h2 img{
+    margin-left: 1.6rem;
+}
+.Aboutpage .left p{
+    font-size: 1.6rem;
+    color: #666;
+}
+.Aboutpage .row .right {
+    position: relative;
+    margin-left: 18.1rem;
+    margin-right: 0;
+}
+.Aboutpage .row2 .right {
+    margin-right: 18.1rem;
+    margin-left: 0;
+}
+.Aboutpage .right img:nth-child(1){
+    width: 41rem ;
+    height: 41rem;
+    filter: none;
+}
+.Aboutpage .right img:nth-child(2){
+    width: 25rem ;
+    position: absolute;
+    bottom: 3.1rem;
+    left: -8.2rem;
+    height: 25rem;
+    filter: none;
+}
+.Aboutpage .row .right img.element{
+    width: 13.1rem;
+    height: auto;
+    filter: none;
+    left: -.877rem;
+    position: absolute;
+}
+.Aboutpage .row.row2 .right img.element{
+    left: initial;
+    right: -.86rem;
+    transform: scaleX(-1);
+}
+.Aboutpage .row2 .right img:nth-child(2){
+    right: -8.2rem;
+
+    left: initial
+;
+}
+.Feature .container img:nth-child(2){
+    display: none;
+}
+.Feature .container img:nth-child(1) {
+    left: 13.11rem !important;
+}
+@media screen and (max-width : 1700px) {
+    html{
+        font-size: 57.5%;
+    }
+    footer .top,
+    .contact .row,
+    .hero .container,
+    .journey{
+        width: 90%;
+    }
+}
+@media screen and (max-width : 1400px) {
+    html{
+        font-size: 52.5%;
+    }
+}
+@media screen and (max-width : 1280px) {
+    html{
+        font-size: 47.5%;
+    }
+}
+@media screen and (max-width : 1100px) {
+    html {
+        font-size: 40.5%;
+    }
+}
+@media screen and (max-width : 930px) {
+
+    .AboutSec {
+        width: 104rem;
+    }
+    .AboutSec .border{
+        width: 100%;
+    }
+    .AboutSec .right img{
+        width: 55rem;
+        height: auto;
+    }
+    .AboutSec .left {
+        width: 43rem;
+
+    }
+    .AboutSec .left p{
+        width: 100%;
+        font-size: 1.6rem;
+    }
+    .AboutSec .left h2{
+        line-height: 4.5rem;
+        max-width: 100%;
+        font-size: 4.2rem;
+    }
+    .AboutSec .left .btn{
+        margin-top: 2rem;
+    }
+    .AboutSec .row:nth-child(4) .left h2 svg{
+        top: calc(50% + 0.63rem);
+        left: 24.4rem !important;
+    }
+    .AboutSec .row:nth-child(3) .left h2 svg{
+        top: calc(93% + 0.63rem);
+        left: 20.9rem !important;
+    }
+    .AboutSec .row:nth-child(5) .left h2 svg{
+        top: calc(36% + 0.63rem);;
+    }
+    .AboutSec .row:nth-child(2) .left h2 svg{
+        top: calc(36% + 0.63rem);;
+    }
+    .cards{
+        width: 90%;
+    }
+    .cards .card{
+        width: 94%;
+    }
+    .contact p{
+        width: 50rem;
+    }
+    footer .top {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    footer .top .links{
+        margin: 2rem !important;
+    }
+    .Aboutpage{
+        width: 100%;
+    }
+}
+@media screen and (max-width : 840px) {
+    html{
+        font-size: 37.5%;
+    }
+}
+@media screen and (max-width : 768px) {
+    .hero .container h2{
+        font-size: 7rem;
+        line-height: 7rem;
+    }
+    .Feature .container img:nth-child(1) {
+        left:23.4rem !important;
+        top: -2.4rem;
+    }
+    .hero .container img:nth-child(2){
+        top: 14rem;
+        right: 13rem;
+    }
+    .hero .container {
+        padding-bottom: 6rem;
+    }
+    .hero .container img:nth-child(1){
+        left: 17.11rem
+    }
+    .AboutSec .border{
+        display: none;
+    }
+    .AboutSec .row2,
+    .AboutSec .row{
+        margin-top: 5rem;
+        flex-direction: column  !important;
+        align-items: center;
+        text-align: center;
+    }
+    .AboutSec .left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 5rem;
+        width: auto;
+    }
+    .AboutSec .left p{
+        width: 50rem;
+    }
+    .AboutSec .row:nth-child(2) .left h2 svg{
+        top: calc(80% + 0.63rem);
+        left: 3.2rem !important;
+    }
+    .AboutSec .row:nth-child(5) .left h2 svg,
+    .AboutSec .row:nth-child(4) .left h2 svg{
+        top: calc(80% + 0.63rem);
+    }
+    .About .container img:nth-child(1){
+        left: 25.11rem;
+        width: 4.5rem;
+    }
+    .About .container img:nth-child(2){
+        top: 7rem;
+        right: 23rem;
+        width: 11.7rem;
+    }
+    .journey h2 {
+        font-size: 6rem;
+    }
+    .journey h2 svg{
+        bottom: 0.2rem;
+        right: 22.3rem !important;
+    }
+    .learnmore h2 svg{
+        right: 27rem !important;
+    }
+    .cards{
+        flex-direction: column;
+        width: 70%;
+    }
+    .cards .right{
+        margin-top: 0;
+    }
+    .contact .row{
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact .row .right{
+        margin-top: 5rem;
+    }
+    footer .top{
+        width : 381px
+    }
+    footer .top .links{
+        margin: 0 !important;
+        margin-top: 2rem !important;
+        margin-right: 2rem !important;
+    }
+    header {
+        height: auto;
+        width: 90%;
+        margin: auto;
+        align-items: flex-start;
+        padding:3rem 0;
+        justify-content: space-between;
+    }
+    header nav{
+        display: none;
+        width: calc(85% - 10.4rem);
+        flex-direction: column;
+        margin-top: 10.4rem;
+    }
+    header nav.active{
+        display: flex;
+    }
+    header nav a{
+        margin: 2rem 0;
+    }
+    header .ham{
+        display: flex;
+        flex-direction: column;
+        width: 10.4rem;
+        justify-content: center;
+        align-items: center;
+        height: 10.4rem;
+    }
+    header .ham .line{
+        width: 5rem;
+        height: 4px;
+        background-color: #52525B;
+        border-radius: 5rem;
+        margin-bottom: 5px;
+    }
+    .AboutSec{
+        width: 90%;
+    }
+    .contactUsPage .container img:nth-child(2) {
+        right: 18.7rem ;
+        width: 10.7rem ;
+        top: 7rem ;
+    }
+    .ContactPageForm h2{
+        font-size: 6rem;
+    }
+    .ContactPageForm{
+        flex-direction: column-reverse;
+    }
+    .ContactPageForm .left{
+        background-image: url("./img/learnmore.png");
+        width: 80rem;
+        height: auto;
+        padding: 5rem 3rem;
+        margin-top: 4rem;
+    }
+    .Aboutpage .row .right{
+        margin-right: 0 !important;
+        margin-left: 7rem !important;
+    }
+    .Aboutpage .row2 .right{
+        margin-right: 7rem !important;
+        margin-left: 0 !important;
+    }
+
+    .contactUsPage .container img:nth-child(1) {
+        left: 19.4rem;
+    }
+    .contactUsPage .container img:nth-child(2) {
+        right: 19.7rem;
+    }
+    .Aboutpage{
+        width: 100%;
+    }
+    footer .top {
+        justify-content: space-around;
+    }
+    footer .top .about{
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    footer .top .about p{
+        width: 100%;
+    }
+    footer .top .links {
+        margin-top: 3rem !important;
+    }
+    footer .top .links:nth-child(4) {
+        margin-left: 17.4rem;
+        width: 100%;
+        align-items: center;
+    }
+}
+@media screen and (max-width : 550px) {
+    .journey p ,
+    .hero .container p{
+        width: 57rem;
+    }
+    .journey h2 {
+        font-size: 5rem;
+    }
+    .journey h2 svg{
+        width: 12.2rem !important;
+        right: 20.3rem !important;
+    }
+    .learnmore h2 svg{
+        right: 24.3rem !important;
+
+    }
+    .hero .container img:nth-child(2) {
+        top: 14rem;
+        right: 1rem;
+    }
+    .hero .container img:nth-child(1) {
+        left: 5.11rem;
+    }
+    .cards {
+        width: 90%;
+    }
+    .cards .card{
+        width: 100%;
+    }
+
+
+
+    /* Contact Page  */
+    .ContactPageForm .left,
+    .ContactPageForm .right{
+        width: 90%;
+        margin: auto;
+
+    }
+    .ContactPageForm .left{
+        margin-top: 4rem;
+    }
+    .ContactPageForm form{
+        width: 100%;
+    }
+    .ContactPageForm form .input,
+    .ContactPageForm form .input textarea,
+    .ContactPageForm form .input input{
+        width: 100%;
+    }
+    .contactUsPage .container img:nth-child(2) {
+        right: 5.7rem !important;
+        width: 9.7rem !important;
+        top: 6rem !important;
+    }
+    .ContactPageForm h2{
+        font-size: 4rem;
+    }
+
+    .About .container img:nth-child(1) {
+        left: 10.1rem !important;
+    }
+
+}
+@media screen and (max-width : 550px) {
+    footer .top {
+        width: 308px;
+    }
+    footer .top .about p {
+        font-size: 1.6rem;
+        width: 35.7rem;
+        margin-top: 1.8rem;
+    }
+    .AboutSec .right img {
+        width: 100%;
+    }
+    .hero .container h2 {
+        font-size: 6rem;
+        line-height: 6rem;
+    }
+
+    .hero .container img:nth-child(2) {
+        top: 12rem;
+        right: 6rem;
+    }
+    .hero .container img:nth-child(1) {
+        left: 8.11rem;
+        width: 4.5rem;
+    }
+    .hero .container img:nth-child(2){
+        width: 18.7rem;
+    }
+
+
+    .contact .row .right{
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact .row .right .btn{
+        margin-top: 2rem;
+    }
+    .journey h2 {
+        font-size: 4rem;
+    }
+    .journey h2 svg {
+        width: 9.2rem !important;
+        right: 17.3rem !important;
+        bottom: -0.8rem;
+    }
+    .learnmore h2 svg {
+        right: 19.3rem !important;
+    }
+    .journey p, .hero .container p {
+        width: 47rem;
+    }
+    .hero .container img:nth-child(1) {
+        left: 3.5rem;
+    }
+    .hero .container img:nth-child(2) {
+        right: 2rem;
+    }
+    .hero .container .box{
+        margin-top: 7rem;
+    }
+    .journey{
+        margin-top: 10rem;
+        padding: 4.06rem 0;
+
+    }
+    .journey p {
+        margin-bottom: 2rem;
+    }
+    .Feature .container img:nth-child(1) {
+        left: 9.1rem !important;
+        top: -1.6rem;
+    }
+    .About .container img:nth-child(2){
+        right: 10rem;
+        width: 8.7rem;
+        top: 6rem;
+    }
+
+}
+@media screen and (max-width : 450px) {
+
+}

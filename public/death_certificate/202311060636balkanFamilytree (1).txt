@@ -1,0 +1,128 @@
+3 function in one file navigationController 
+
+line- from    306 t0 426
+1 main function 
+  public function familyNewTree()
+
+    {
+       $pid = [Auth::user()->id];
+       $userPid = json_encode($pid);
+       #helperfunction1
+       $nodes= $this->getNestedData(Auth::user()->id);
+       #helper function2
+       $allIds = $this->getAllIds($nodes);
+      
+       $nodes = $allIds;
+ 
+       $title = "Family Tree | Last Few Words";
+
+       return view("tree", compact("title", 'nodes'));
+
+       
+    }
+
+2 helper function
+
+1 helper function to get bucket of all ids 
+ public static function getNestedData($userId, $depth = 0, $maxDepth = 5, &$processedUsers = [])
+        {
+            if (in_array($userId, $processedUsers)) {
+                return []; 
+            }
+    
+            $processedUsers[] = $userId; 
+    
+            $nestedData = [];
+            $IdArray=[];
+    
+            $userData = User::with('user_information','deathConfirmation')->where('id', $userId)->first();
+            $nestedUser = $userData;
+            array_push($nestedData,$nestedUser);
+    
+            if ($depth < $maxDepth) {
+                $treeData = DB::table('user_tree')->where('user_id', $userId)->first();
+    
+                if ($treeData) {
+                    if ($treeData->p_id) {
+                        $pId = (int) preg_replace('/[^0-9]/', '', $treeData->p_id);
+
+                        $nestedFetchData = self::getNestedData($pId, $depth + 1, $maxDepth, $processedUsers);
+                        array_push($nestedData,$nestedFetchData);
+                    }
+    
+                    if ($treeData->f_id) {
+                        $nestedFetchData = self::getNestedData($treeData->f_id, $depth + 1, $maxDepth, $processedUsers);
+                        array_push($nestedData,$nestedFetchData);
+                    }
+    
+                    if ($treeData->m_id) {
+                        $nestedFetchData = self::getNestedData($treeData->m_id, $depth + 1, $maxDepth, $processedUsers);
+                        array_push($nestedData,$nestedFetchData);
+                    }
+    
+                  
+                    $familyData = DB::table('user_tree')
+                        ->where('f_id', $userId)
+                        ->orWhere(function ($query) use ($treeData,$userId) {
+                            $query->where('f_id', $treeData->f_id)
+                                ->where('m_id', $treeData->m_id)
+                                ->where('user_id', '!=', $userId);
+                        })
+                        ->get();
+    
+                    $nestedData['children'] = [];
+                    $nestedData['siblings'] = [];
+    
+                    foreach ($familyData as $familyMember) {
+                        if ($familyMember->p_id == $userId) {
+                            $nestedFetchData = self::getNestedData($familyMember->user_id, $depth + 1, $maxDepth, $processedUsers);
+                            array_push($nestedData,$nestedFetchData);
+                        } elseif ($familyMember->user_id != $userId) {
+                           
+                            if (!isset($nestedData['siblings'][$familyMember->user_id])) {
+                                $nestedFetchData  = self::getNestedData($familyMember->user_id, $depth + 1, $maxDepth, $processedUsers);
+                                array_push($nestedData,$nestedFetchData);
+                            }
+                        }
+                    }
+                }
+            }
+    
+            return $nestedData;
+        }
+
+2 helper to make nodes
+
+ public function getAllIds($nestedData, &$allIds = []) {
+        foreach ($nestedData as $item) {
+            if (is_object($item) && isset($item->id)) {
+                // dd($item->getRelations());
+                $relations = $item->getRelations();
+                $userInformation = $item->getRelations('user_information');
+                $deathInformation = $item->getRelations('deathConfirmation');
+                $deathConfirmationCollection = $deathInformation['deathConfirmation'];
+                $deathConfirmationModel = $deathConfirmationCollection->first();
+
+                $tree = DB::table('user_tree')->where('user_id', $item->id)->first();
+               
+                $node = [
+                    'id' => $item->id,
+                    'name' => $item->first_name . ' ' . $item->last_name,
+                    'date_of_birth' => $userInformation['user_information'] ? $userInformation['user_information']['date_of_birth'] : null,
+                    'profile_picture' => $userInformation['user_information']? $userInformation['user_information'] ['profile_picture']:null,
+                    'country' =>$userInformation['user_information']?$userInformation['user_information']['country']:null,
+                    'is_alive' => $deathConfirmationModel? $deathConfirmationModel->is_alive : null,
+                    'pids' => isset($tree->p_id) ? $tree->p_id : null,
+                    'fid' => $tree->f_id,
+                    'mid' => $tree->m_id,
+                    // 'tree' => $tree, // Add the tree data to the node
+                ];
+        
+                $allIds[] = $node;
+               
+            } elseif (is_array($item) || is_object($item)) {
+                self::getAllIds($item, $allIds);
+            }
+        }
+        return $allIds;
+    }  
